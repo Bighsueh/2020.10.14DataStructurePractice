@@ -13,29 +13,19 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     TextView textView;
     Button button;
-    EditText editText;
-    int num;
-    Random ran = new Random();
-
+    int temp = 0;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        editText = findViewById(R.id.editText);
         textView = findViewById(R.id.textView);
         button = findViewById(R.id.button);
         button.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                String[] lst = {"我們是第五組，組稱'資料解構'", "組員有40841107 劉宜欣", "組員有40841121 薛孟君", "組員有40841144 辛昌紘", "組員有40841145 林政佑", "組員有40841147 王禹翔"};
                 textView.setText("");
-                num = Integer.parseInt(editText.getText().toString());
-                int data[] = new int[num];
-                for (int i = 0; i <= data.length - 1; i++) {
-                    data[i] = ran.nextInt(49);
-                    if (i != 0) {
-                        textView.setText(textView.getText().toString() + ",");
-                        textView.setText(textView.getText().toString() + Integer.toString(data[i]));
-                    }
-                }
+                textView.setText(lst[(temp % 6)].toString());
+                temp += 1;
             }
         });
 
